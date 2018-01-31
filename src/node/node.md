@@ -20,3 +20,24 @@ DOM.BOM.javascript. 这三者搭配呈现了html web. 而在服务器node环境�
 其实我并不需要用nodejs编写服务端程序, 之所以了解下nodejs 主要是npm 这个包管理工具. 就相当于了解java常用的包
 一样, 服务器端在编写ES6语法时候会依赖很多其他js. 最后混淆,打包成我们需要的js 文件.
 
+
+
+# CommonJS, AMD
+
+NodeJS 使用的是 commonJS的标准: 一个单独的文件是一个模块, 模块内将对外暴露的变量放置到exports对象中, 未放置到exports 里面的对象是私有的.
+
+NodeJs 中一般可以看到: 
+
+```
+var a = require()
+module.exports = a
+```
+
+AMD: 异步加载模块. 主要用于浏览器js 加载.
+
+```
+define(id, [depends], factory);  
+require([module], callback);
+```
+
+目前还没有接触到 AMD 的使用. 接触到之后再进行总结吧.
