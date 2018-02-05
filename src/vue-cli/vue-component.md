@@ -53,5 +53,40 @@ props支持驼峰命名,不过在 template中要使用横线的方式进行分�
 <child :my-message="parentMsg"></child>
 
 //属性的传递 只能是父-->子, 不允许子修改父的数据, 如果要修改数据需要定义局部变量
+
+// props 支持验证:  propB: [String, Number],
 ```
 
+子-->父: 通过事件进行沟通
+
+```
+1. 绑定父监听事件v-on　  <button-counter v-on:increment="incrementTotal"></button-counter>
+2. 实现子事件   <button v-on:click="incrementCounter">{{ counter }}</button>
+
+methods: {
+    incrementCounter: function () {
+      this.counter += 1
+      this.$emit('increment')
+    }
+  },
+
+3. 编写父事件监听
+
+methods: {
+    incrementTotal: function () {
+      this.total += 1
+    }
+  }
+
+4. 子组件触发事件 this.$emit('increment')
+
+```
+
+# slot
+---
+
+* 插槽. 有些类似于java中的sitemesh. 定义了需要替换的部分.
+* 如果子组件没有slot 则无法接受到父组件中的内容.
+* slot 可以指定名称接受内容.<slot name="header"></slot>
+
+#  
